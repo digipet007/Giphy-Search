@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(238,237,239);
+}
+
+.container {
+    padding: 10px;
+}
+
+#buttons-go-here{
+    width: 100%;
+    padding: 10px 10px 20px 0px;
+}
+
+#populate-gifs-here{
+    float: left;
+    width: 70%;
+}
+
+#search-form{
+    width: 30%;
+    float: right;
+    margin: 0px 10px 0px 10px;
+}
+
+#search-bar-title{
+    font-weight: bold;
+}
+
+#search-input{
+    margin: 10px 0px 10px 0px;
+    width: 100%;
+}
+
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit], button {
+    color: white;
+    background-color: rgb(104,155,156);
+    border-radius: 8px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover, button:hover {
+    background-color: rgb(48, 94, 95);
+  }
