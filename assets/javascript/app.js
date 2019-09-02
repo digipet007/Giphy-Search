@@ -23,7 +23,7 @@ function populateButtons(topics, classToAdd, areaToAdd){
 //on-click function will grab user input and complete the
 //AJAX call
 $(document).on("click", ".searchButton", function(){
-    $("#populate-gifs-here").empty();
+    $("#populate-gifs-here").empty();   
     var dataType = $(this).data("type");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataType + "&api_key=VikWXpQW2mBa4Wu7t4dEKeRdwDaGl9x9&limit=10";
     $.ajax({
@@ -63,10 +63,15 @@ $(document).on("click", ".searchButton", function(){
             if(state === "still"){
                 $(this).attr("src", $(this).data("animated"));
                 $(this).attr("data-state", "animated");
-            } else{
+                // console.log(this);
+            } 
+            if(state !== "still"){
                 $(this).attr("src", $(this).data("still"));
                 $(this).attr("data-state", "still");
+                console.log(this);
+                //problem: is not toggling the data state to animated for images that appear after more than one button was clicked
             }
+            console.log(state);
         }) 
     })
 });
@@ -79,7 +84,6 @@ $("#searchBtn").on("click", function(){
     //grab whatever is entered into the search bar
     //eq grabs the first version of the input, since this element already has an input type and value
     var newSearch = $("input").eq(0).val();
-    
     //populate the array with the new search term
     topics.push(newSearch);
     console.log(topics);
