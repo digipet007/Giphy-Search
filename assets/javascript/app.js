@@ -2,6 +2,10 @@
 //populating the page with the initial buttons
 $(function(){
     populateButtons(topics, "searchButton", "#buttons-go-here");
+    for( var z=0; z<localStorage.length; z++){
+        favoriteTopics.push(localStorage.getItem(localStorage.key(z)));
+    }
+    console.log(favoriteTopics);
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
 });
 
@@ -87,6 +91,7 @@ $("#searchBtn").on("click", function(){
     var newSearch = $("input").eq(0).val();
     //populate the array with the new search term
     topics.push(newSearch);
+    $("#search-input").val("");
     $("#buttons-go-here").empty();
     populateButtons(topics, "searchButton", "#buttons-go-here");
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
@@ -103,6 +108,9 @@ $("#favoriteBtn").on("click", function(){
     var newFavSearch = $("input").eq(0).val();
     //populate the array with the new search term
     favoriteTopics.push(newFavSearch);
+    // store the item in local storage to populate the favorite topics buttons upon reload
+    localStorage.setItem("Favorite Topic", newFavSearch);
+    $("#search-input").val("");
     $("#buttons-go-here").empty();
     populateButtons(topics, "searchButton", "#buttons-go-here");
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
