@@ -58,6 +58,12 @@ input[type=text] {
       margin: 3px;
   }
 
+  .favorite-search-button{
+    margin: 3px;
+    color: black;
+    background-color: yellow;
+  }
+
   .gif-item {
       float: left;
       margin: 20px;

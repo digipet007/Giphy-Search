@@ -2,20 +2,22 @@
 //populating the page with the initial buttons
 $(function(){
     populateButtons(topics, "searchButton", "#buttons-go-here");
+    populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
 });
 
 //array of pre-made search topics
 var topics = ["nature", "Northern Lights", "penguins", "seals", "Samuel L. Jackson", "James Brown", "kittens", "ferrets"];
 var image;
+var favoriteTopics = [];
 
 //creates buttons
-function populateButtons(topics, classToAdd, areaToAdd){
-    $(areaToAdd).empty();
-    for(let i =0; i< topics.length; i++){
+function populateButtons(unicorn, classToAdd, areaToAdd){
+    // $(areaToAdd).empty();
+    for(let i =0; i< unicorn.length; i++){
         var button = $("<button>");
         button.addClass(classToAdd);
-        button.attr("data-type", topics[i]);
-        button.text(topics[i]);
+        button.attr("data-type", unicorn[i]);
+        button.text(unicorn[i]);
         $(areaToAdd).append(button);
     }
 };
@@ -52,7 +54,7 @@ function callAjax (dataType){
     })
 };
 
-$(document).on("click", ".searchButton", function(){
+$(document).on("click", ".searchButton, .favorite-search-button", function(){
     $("#populate-gifs-here").empty();   
     var dataType = $(this).data("type");
     callAjax(dataType);
@@ -85,7 +87,25 @@ $("#searchBtn").on("click", function(){
     var newSearch = $("input").eq(0).val();
     //populate the array with the new search term
     topics.push(newSearch);
+    $("#buttons-go-here").empty();
     populateButtons(topics, "searchButton", "#buttons-go-here");
+    populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
+    //input type of submit will reload the page, taking away the added buttons
+    //returning false will prevent this from happening
+    return false;
+});
+
+$("#favoriteBtn").on("click", function(){
+    //prevent page from reloading. This is needed due to the button's bubmit type attribute.
+    event.preventDefault();
+    //grab whatever is entered into the search bar
+    //eq grabs the first version of the input, since this element already has an input type and value
+    var newFavSearch = $("input").eq(0).val();
+    //populate the array with the new search term
+    favoriteTopics.push(newFavSearch);
+    $("#buttons-go-here").empty();
+    populateButtons(topics, "searchButton", "#buttons-go-here");
+    populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
     //input type of submit will reload the page, taking away the added buttons
     //returning false will prevent this from happening
     return false;
