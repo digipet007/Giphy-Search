@@ -57,3 +57,24 @@ input[type=text] {
   .searchButton{
       margin: 3px;
   }
+
+  .gif-item {
+      float: left;
+      margin: 20px;
+  }
+
+  @media only screen and (max-width: 640px) {
+    #search-form{
+        width: 100%;
+    }
+    .container{
+        margin: 5px 10px 0px 10px;
+    }
+    .gif-item{
+        width: 100%;
+    }
+    .search-image{
+        width: 100%;
+        height: auto;
+    }
+}

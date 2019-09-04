@@ -20,10 +20,8 @@ function populateButtons(topics, classToAdd, areaToAdd){
     }
 };
 
-//on-click function will grab user input and complete the
-//AJAX call
 function callAjax (dataType){
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + dataType + "&api_key=VikWXpQW2mBa4Wu7t4dEKeRdwDaGl9x9&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dataType + "&api_key=VikWXpQW2mBa4Wu7t4dEKeRdwDaGl9x9&limit=10";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -32,7 +30,8 @@ function callAjax (dataType){
         for(let j = 0; j< response.data.length; j++){
             var searchDiv = $("<div class='gif-item'>");
             var rating = response.data[j].rating;
-            var p = $("<p>").text("Rating: " + rating);
+            var upperRating = rating.toUpperCase();
+            var p = $("<p>").text("Rating: " + upperRating);
             //variables to specify both animated versions of gifs and still versions of gifs, located within the response variable
             var animated = response.data[j].images.fixed_height.url;
             var still = response.data[j].images.fixed_height_still.url;
@@ -65,11 +64,15 @@ $(document).on("click", ".searchImage", function(){
     var state = $(this).attr("data-state");
     //if the state is still, pull from the src for still image, stored in the animated variable. Else, pull from the still image source variable
     if(state === "still"){
-        $(this).attr("src", $(this).data("animated"));
-        $(this).attr("data-state", "animated");
+        $(this).attr({
+            "src": $(this).data("animated"),
+            "data-state": "animated"
+        })
     } else {
-        $(this).attr("src", $(this).data("still"));
-        $(this).attr("data-state", "still");
+        $(this).attr({
+            "src": $(this).data("still"),
+            "data-state": "still"
+        })
     }
 }); 
 
