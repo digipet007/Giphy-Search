@@ -16,7 +16,6 @@ var favoriteTopics = [];
 
 //creates buttons
 function populateButtons(unicorn, classToAdd, areaToAdd){
-    // $(areaToAdd).empty();
     for(let i =0; i< unicorn.length; i++){
         var button = $("<button>");
         button.addClass(classToAdd);
@@ -42,7 +41,6 @@ function callAjax (dataType){
             var animated = response.data[j].images.fixed_height.url;
             var still = response.data[j].images.fixed_height_still.url;
             image = $("<img>");
-            //organizing image attributes as an object streamlines code and decreases loading time
             //all images load to the page as still images first.
             image.attr({
                 "src": still,
@@ -68,7 +66,7 @@ $(document).on("click", ".searchImage", function(){
     //creates variable to store data-state of clicked image with class of searchImage
     //cannot be .data("state"), as that only specifies the initial data state; the gif will not be able to change to its animated data-state attribute, and thus the else statement will never fire and the gif will be in constant motion.
     var state = $(this).attr("data-state");
-    //if the state is still, pull from the src for still image, stored in the animated variable. Else, pull from the still image source variable
+    //pull from the src for still image, stored in the animated variable. Else, pull from the still image source variable
     if(state === "still"){
         $(this).attr({
             "src": $(this).data("animated"),
