@@ -1,6 +1,6 @@
 # Giphy Search Engine
 
-This is a dynamic Javascript, jQuery, and Ajax-powered app that makes API calls to the Giphy search engine. Type your search requests into the search bar. Uses local storage to bookmark your favorite searches. Click the teal buttons to generate the still gifs. Click each gif to pause and play.
+This is a dynamic Javascript, jQuery, and Giphy-powered GIF search engine. Type your search requests into the search bar. Uses local storage to bookmark your favorite searches. Click the teal or yellow buttons to generate the still GIF. Click each GIF to pause and play.
 
 ### Prerequisites
 
@@ -39,4 +39,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Acknowledgments
 
 * This app utilizes the Myerweb CSS reset (https://meyerweb.com/eric/tools/css/reset/)
+* This app makes API calls to https://giphy.com/
 * Created for UW Full Stack Flex Certificate program, according to program specifications. 
