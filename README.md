@@ -14,9 +14,9 @@ Or simply play online: (https://digipet007.github.io/Giphy-Search/)
 
 ## Built With
 
-*HTML
-*CSS
-*uses Javascript and jQuery to dynamically update the HTML
+* HTML
+* CSS
+* uses Javascript and jQuery to dynamically update the HTML
 
 ## Contributing
 

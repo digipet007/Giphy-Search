@@ -1,5 +1,3 @@
-//jQuery function will begin once the page loads,
-//populating the page with the initial buttons
 $(function(){
     populateButtons(topics, "searchButton", "#buttons-go-here");
     for( var z=0; z<localStorage.length; z++){
@@ -9,7 +7,6 @@ $(function(){
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
 });
 
-//array of pre-made search topics
 var topics = ["nature", "Northern Lights", "penguins", "seals", "Samuel L. Jackson", "James Brown", "kittens", "ferrets"];
 var image;
 var favoriteTopics = [];
@@ -82,10 +79,8 @@ $(document).on("click", ".searchImage", function(){
 
 //add new buttons to #buttons-go-here in a separate on-click function
 $("#searchBtn").on("click", function(){
-    //prevent page from reloading. This is needed due to the button's bubmit type attribute.
     event.preventDefault();
     //grab whatever is entered into the search bar
-    //eq grabs the first version of the input, since this element already has an input type and value
     var newSearch = $("input").eq(0).val();
     //populate the array with the new search term
     topics.push(newSearch);
@@ -93,8 +88,6 @@ $("#searchBtn").on("click", function(){
     $("#buttons-go-here").empty();
     populateButtons(topics, "searchButton", "#buttons-go-here");
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
-    //input type of submit will reload the page, taking away the added buttons
-    //returning false will prevent this from happening
     return false;
 });
 
@@ -102,7 +95,6 @@ $("#favoriteBtn").on("click", function(){
     //prevent page from reloading. This is needed due to the button's bubmit type attribute.
     event.preventDefault();
     //grab whatever is entered into the search bar
-    //eq grabs the first version of the input, since this element already has an input type and value
     var newFavSearch = $("input").eq(0).val();
     //populate the array with the new search term
     favoriteTopics.push(newFavSearch);
@@ -112,7 +104,5 @@ $("#favoriteBtn").on("click", function(){
     $("#buttons-go-here").empty();
     populateButtons(topics, "searchButton", "#buttons-go-here");
     populateButtons(favoriteTopics, "favorite-search-button", "#buttons-go-here");
-    //input type of submit will reload the page, taking away the added buttons
-    //returning false will prevent this from happening
     return false;
 });
