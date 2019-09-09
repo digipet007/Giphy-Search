@@ -24,7 +24,7 @@ Pull requests welcome!
 
 ## Authors
 
-* **Sarah Arnold** -(https://github.com/digipet007)
+* **Sarah Arnold** --view my portfolio and bio: (https://digipet007.github.io/Sarahs-Portfolio/)
 
 ## License
 
